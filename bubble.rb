@@ -1,26 +1,17 @@
 def bubble_sort(list)
-    swapped = false 
-    
-    loop do 
-      list.each_with_index do |num, i|
-        if list[i+1] && num > list[i+1]
-          list[i], list[i+1] = list[i+1], list[i]
-          swapped = true
-          break
-        end
-        if i == list.length - 2
-          swapped = false
-          break
-        end
+  swapped = true
+  while swapped do
+    swapped = false
+    0.upto(list.size-2) do |i|
+      if list[i] > list[i+1]
+        list[i], list[i+1] = list[i+1], list[i]
+        swapped = true
       end
-      
-      if swapped == false
-        break
-      end
-      
-    end
-    list
-  end 
+    end    
+  end
+
+  list
+end
 
 result = bubble_sort([4,3,78,2,0,2])
 p result
